@@ -17,75 +17,9 @@
         alert("Hello students!\n\nClick on X on the top right hand to partially hide background");
       };
     </script>
-  </head>
 
-  <body> 
-    <!-- Button to show/hide 3D model -->
-    <button id="toggleModelBtn" onclick="toggleModel()">Show/Hide Model</button>
-
-    <div id="skybtn">
-      <button 
-        class="skybtn" 
-        id="skybtn"
-        onclick="skyCTRL()"
-      >X</button>
-    </div>
-
-    <a-scene
-      arjs="sourceWidth: 1024; sourceHeight: 776; displayWidth: 1024; displayHeight: 776;"
-      embedded
-      renderer="logarithmicDepthBuffer: true;"
-      vr-mode-ui="enabled: false"
-      gesture-detector
-      loading-screen="enabled: false"
-      gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/v1/decoders/;"
-      id="scene"
-    >
-      <a-assets>
-        <!-- Testosterone 3D model -->
-        <a-asset-item id="testosterone-obj" src="testosterone.obj"></a-asset-item>
-        <a-asset-item id="testosterone-mtl" src="testosterone.mtl"></a-asset-item>
-      </a-assets>
-
-      <a-marker
-        preset="hiro"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
-        smooth="true"
-        smoothCount="50"
-        smoothTolerance="0.1"
-        smoothThreshold="1000"
-      >
-        <a-sky id="sky" color="#C0C0C0" opacity="0"></a-sky>        
-
-        <a-entity
-          id="testosterone-model"
-          obj-model="obj: #testosterone-obj; mtl: #testosterone-mtl"
-          position="3 0 0"
-          rotation="0 0 90"
-          scale="0.5 0.5 0.5"
-          class="clickable"
-          gesture-handler 
-          material="color: pink"
-          visible="true">
-        </a-entity>
-
-      </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene>
-
-    <!-- Script to toggle 3D model visibility -->
-    <script>
-      function toggleModel() {
-        const model = document.querySelector('#testosterone-model');
-        if (model.getAttribute('visible')) {
-          model.setAttribute('visible', 'false'); // hide model
-        } else {
-          model.setAttribute('visible', 'true');  // show model
-        }
-      }
-    </script>
-  </body>
-</html>
+    <style>
+      /* Floating Show/Hide button */
+      #toggleModelBtn {
+        position: absolute;   /* float above the AR canvas */
+        top: 2
