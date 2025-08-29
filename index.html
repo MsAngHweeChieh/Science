@@ -13,6 +13,16 @@
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
     <script src="sky.js"></script>
+<script>
+  function toggleModel() {
+    const model = document.querySelector('#testosterone-model'); // or your model id
+    if (model.getAttribute('visible')) {
+      model.setAttribute('visible', 'false'); // hide model
+    } else {
+      model.setAttribute('visible', 'true');  // show model
+    }
+  }
+</script>
 
     <!-- this is a comment: the alert below produces a pop up box when loaded to give information to users, 
      you can edit the message in between the inverted commas or remove it entirely
@@ -21,6 +31,7 @@
       window.onload = function () {
         alert("Hello students!\n\nClick on X on the top right hand to partially hide background");
       };
+      
     </script>
   </head>
 
@@ -32,6 +43,7 @@
     onclick="skyCTRL()"
     >X</button>
   </div>
+    <button id="toggleModelBtn" onclick="toggleModel()">Show/Hide Model</button>
     <a-scene
       arjs="sourceWidth: 1024; sourceHeight: 776; displayWidth: 1024; displayHeight: 776;"
       embedded
@@ -94,7 +106,8 @@
           rotation="0 0 90"
           scale="0.5 0.5 0.5"
           class="clickable"
-          gesture-handler 
+          gesture-handler
+          visible="true"
         >
         </a-entity>
 
