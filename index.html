@@ -13,15 +13,6 @@
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
     <script src="sky.js"></script>
-<script>
-  function toggleModel() {
-    const model = document.querySelector('#testosterone-model'); // or your model id
-    if (model.getAttribute('visible')) {
-      model.setAttribute('visible', 'false'); // hide model
-    } else {
-      model.setAttribute('visible', 'true');  // show model
-    }
-  }
 </script>
 
     <!-- this is a comment: the alert below produces a pop up box when loaded to give information to users, 
@@ -31,7 +22,15 @@
       window.onload = function () {
         alert("Hello students!\n\nClick on X on the top right hand to partially hide background");
       };
-      
+      <script>
+  function toggleModel() {
+    const model = document.querySelector('#testosterone-model'); // or your model id
+    if (model.getAttribute('visible')) {
+      model.setAttribute('visible', 'false'); // hide model
+    } else {
+      model.setAttribute('visible', 'true');  // show model
+    }
+  }
     </script>
   </head>
 
